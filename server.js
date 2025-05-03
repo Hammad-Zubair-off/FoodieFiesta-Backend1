@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: ["https://foodie-fiesta-frontend-dun.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST"],
     credentials: true,
   })
 )
