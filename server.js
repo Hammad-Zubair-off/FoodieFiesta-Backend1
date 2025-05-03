@@ -16,15 +16,23 @@ dotenv.config();
 
 // Middleware
 app.use(express.json());
+// app.use(
+//   cors({
+//     origin:
+//       process.env.NODE_ENV === "production"
+//         ? process.env.CLIENT_URL
+//         : ["http://localhost:3000", "http://localhost:3001"],
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "production"
-        ? process.env.CLIENT_URL
-        : ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["https://foodie-fiesta-frontend-dun.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
-);
+)
 
 // Swagger Documentation
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSetup));
